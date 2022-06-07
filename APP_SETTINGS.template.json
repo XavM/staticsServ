@@ -1,0 +1,18 @@
+{
+  "APP_SETTINGS": {
+    "azure": {
+      "app": {
+        "clientId": "${AZ_REGISTERED_APP_CLIENT_ID}"
+      },
+      "aad": {
+        "tenantId": "${AZ_TENANT_ID}",
+        "loginEndPoint": "login.microsoftonline.com"
+      },
+      "blob": {
+        "endpoint": ".blob.core.windows.net",
+        "storageAccount": "${AZ_STORAGE_ACCOUNT_NAME}",
+        "sas": "${AZ_SHARED_ACCESS_SIGNATURE}"
+      }
+    }
+  }
+}

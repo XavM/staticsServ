@@ -1,0 +1,8 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">AAD Protected Resources</a>
+    <div class="btn-group ml-auto dropleft">
+        <% if (isAuthenticated) { %>
+            <a class="btn btn-secondary" href="/signout" role="button">Sign-out</a>
+        <% } %>
+    </div>
+</nav>
