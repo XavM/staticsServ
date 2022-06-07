@@ -65,6 +65,10 @@ The azure.blob.sas value should be generated using CLI or portal with the follow
 	func azure functionapp publish staticsServ
 	func azure functionapp logstream staticsServ
 
+### Setup CD
+
+portal.Az > Function App > staticsServ > Deployment Center
+
 ## Misc 
 
 	az functionapp config appsettings set -n staticsServ -g CTGFRNPDRSG-staticsServ --settings '@APP_SETTINGS.json'
