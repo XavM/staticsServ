@@ -15,7 +15,6 @@ module.exports = () => {
 
     return new Promise((resolv, reject) => {
 
-      console.log(`https://${appSettings.azure.blob.storageAccount}${appSettings.azure.blob.endpoint}/?comp=list&${appSettings.azure.blob.sas}`)
       https.get(`https://${appSettings.azure.blob.storageAccount}${appSettings.azure.blob.endpoint}/?comp=list&${appSettings.azure.blob.sas}`, (res) => {
 
         const body = []
