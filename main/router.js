@@ -15,6 +15,7 @@ module.exports = () => {
 
     return new Promise((resolv, reject) => {
 
+      console.log(`https://${appSettings.azure.blob.storageAccount}${appSettings.azure.blob.endpoint}/?comp=list&${appSettings.azure.blob.sas}`)
       https.get(`https://${appSettings.azure.blob.storageAccount}${appSettings.azure.blob.endpoint}/?comp=list&${appSettings.azure.blob.sas}`, (res) => {
 
         const body = []
@@ -25,14 +26,14 @@ module.exports = () => {
 
         res.on('end', () => {
 
-          const matches    = body.join('').matchAll(/<Name>(\w*)<\/Name>/g),
+          const matches    = body.join('').matchAll(/<Name>([\w-]+)<\/Name>/g),
                 containers = []
 
           for (const match of matches) {
             containers.push(match[1])
           }
 
-          resolv(containers)
+          resolv(containers.filter(i => i.slice(0, 14) != 'azure-webjobs-'))
         })
 
       }).on('error', (err) => {
